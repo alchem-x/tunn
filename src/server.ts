@@ -1,7 +1,6 @@
 import { type ServerWebSocket } from 'bun'
 
 const SERVER_BIND_PORT = parseInt(process.env.SERVER_BIND_PORT || '7777')
-const SERVER_HOST = process.env.SERVER_HOST || 'localhost'
 
 interface TunnelRequest {
   id: string
@@ -39,9 +38,8 @@ const httpServers = new Map<number, ReturnType<typeof Bun.serve>>()
 
 const wss = Bun.serve<ClientData>({
   port: SERVER_BIND_PORT,
-  hostname: SERVER_HOST,
   fetch(req, server) {
-    const url = new URL(req.url || '', `ws://${SERVER_HOST}:${SERVER_BIND_PORT}`)
+    const url = new URL(req.url || '', `ws://localhost:${SERVER_BIND_PORT}`)
     const serverPort = parseInt(url.searchParams.get('serverPort') || '3721')
 
     if (clients.has(serverPort)) {
@@ -157,5 +155,5 @@ const wss = Bun.serve<ClientData>({
 })
 
 console.log(`Server running:`)
-console.log(`- WebSocket on ${SERVER_HOST}:${wss.port}`)
+console.log(`- WebSocket on ${wss.port}`)
 console.log(`- HTTP servers will start when clients connect`)
