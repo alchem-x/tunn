@@ -1,6 +1,7 @@
 import { type ServerWebSocket } from 'bun'
 
 const SERVER_BIND_PORT = parseInt(process.env.SERVER_BIND_PORT || '7777')
+const SERVER_HOST = process.env.SERVER_HOST || 'localhost'
 
 interface TunnelRequest {
   id: string
@@ -60,7 +61,7 @@ const wss = Bun.serve<ClientData>({
 
       const httpServer = Bun.serve({
         port: serverPort,
-        hostname: '0.0.0.0',
+        hostname: SERVER_HOST,
         fetch(req) {
           console.log(`Received request: ${req.method} ${req.url}`)
           const targetClient = clients.get(serverPort)

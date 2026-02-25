@@ -14,7 +14,10 @@
 bun run ./src/server.ts
 ```
 
-环境变量：`SERVER_BIND_PORT` - WebSocket 监听端口（默认 7777）
+环境变量：
+
+- `SERVER_BIND_PORT` - WebSocket 监听端口（默认 7777）
+- `SERVER_HOST` - HTTP 服务绑定地址（默认 localhost）
 
 ### Client
 

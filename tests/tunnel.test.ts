@@ -24,7 +24,7 @@ describe('Tunnel', () => {
 
   beforeAll(async () => {
     localServer = startServer('./tests/local-server.ts')
-    tunnelServer = startServer('./src/server.ts')
+    tunnelServer = startServer('./src/server.ts', { SERVER_HOST: '0.0.0.0' })
     await sleep(500)
     tunnelClient = startServer('./src/client.ts', {
       SERVER_HOST: 'localhost',
