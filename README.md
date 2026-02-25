@@ -31,6 +31,9 @@ SERVER_HOST=localhost
 
 # shared env
 SERVER_BIND_PORT=7777
+
+# server
+SERVER_BIND_HOST=0.0.0.0
 ```
 
 ```bash
@@ -41,6 +44,7 @@ bun run ./src/client.ts
 
 - `SERVER_HOST` - Server 地址
 - `SERVER_BIND_PORT` - Server WebSocket 端口
+- `SERVER_BIND_HOST` - Server Bind 地址
 - `SERVER_PORT` - 对外暴露的端口
 - `LOCAL_HOST` - 本地服务地址
 - `LOCAL_PORT` - 本地服务端口
