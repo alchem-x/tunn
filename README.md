@@ -19,7 +19,19 @@ bun run ./src/server.ts
 ### Client
 
 ```bash
-SERVER_HOST=localhost SERVER_BIND_PORT=7777 SERVER_PORT=3721 LOCAL_HOST=localhost LOCAL_PORT=3000 bun run ./src/client.ts
+# .env 示例
+# client env
+LOCAL_HOST=localhost
+LOCAL_PORT=3000
+SERVER_PORT=3721
+SERVER_HOST=localhost
+
+# shared env
+SERVER_BIND_PORT=7777
+```
+
+```bash
+bun run ./src/client.ts
 ```
 
 环境变量：
