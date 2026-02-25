@@ -1,0 +1,18 @@
+{
+  "name": "tunn",
+  "scripts": {
+    "server": "bun run src/server.ts",
+    "client": "bun run src/client.ts",
+    "test": "bun test"
+  },
+  "module": "index.ts",
+  "devDependencies": {
+    "@types/bun": "latest",
+    "prettier": "^3.8.1"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "private": true,
+  "type": "module"
+}
