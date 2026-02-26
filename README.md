@@ -4,7 +4,7 @@
 
 ## 架构
 
-外部请求 → Server (serverPort) → Client (WebSocket) → 本地服务 (LOCAL_PORT)
+外部请求 → Server (SERVER_PORT) → Client (WebSocket) → 本地服务 (LOCAL_PORT)
 
 ## 使用
 
