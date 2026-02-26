@@ -38,6 +38,7 @@ const pendingRequests = new Map<
 const httpServers = new Map<number, ReturnType<typeof Bun.serve>>()
 
 const wss = Bun.serve<ClientData>({
+  hostname: SERVER_BIND_HOST,
   port: SERVER_BIND_PORT,
   fetch(req, server) {
     const url = new URL(req.url || '/', `http://localhost`)
