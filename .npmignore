@@ -1,0 +1,35 @@
+# 测试文件
+tests/
+*.test.ts
+*.test.js
+
+# 开发文件
+.prettierrc
+.editorconfig
+tunn.sh
+tsconfig.json
+
+# 数据和示例
+data/
+examples/
+
+# 文档（除了 README）
+docs/
+AGENTS.md
+
+# Git 和 IDE
+.git/
+.gitignore
+.cursor/
+.vscode/
+.idea/
+
+# 日志
+*.log
+logs/
+
+# 临时文件
+*.tmp
+.DS_Store
+node_modules/
+bun.lockb
