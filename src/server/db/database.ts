@@ -15,14 +15,23 @@ const defaultData: Database = {
 
 let db: Low<Database> | null = null
 
-export async function initDB(dataDir: string = './data'): Promise<Low<Database>> {
+export async function initDB(dataDir?: string): Promise<Low<Database>> {
   if (db) return db
 
-  if (!existsSync(dataDir)) {
-    await mkdir(dataDir, { recursive: true })
+  const resolvedDataDir = (() => {
+    if (dataDir && dataDir.trim() !== '') {
+      return dataDir
+    }
+
+    const defaultDataDir = process.env.HOME ? `${process.env.HOME}/.config/tunn/data` : './data'
+    return process.env.DATA_DIR || defaultDataDir
+  })()
+
+  if (!existsSync(resolvedDataDir)) {
+    await mkdir(resolvedDataDir, { recursive: true })
   }
 
-  const dbPath = join(dataDir, 'db.yaml')
+  const dbPath = join(resolvedDataDir, 'db.yaml')
   const adapter = new DataFile<Database>(dbPath, {
     parse: (data: string): Database => Bun.YAML.parse(data) as Database,
     stringify: (data: Database) => Bun.YAML.stringify(data, null, 2),
