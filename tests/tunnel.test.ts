@@ -29,7 +29,7 @@ describe('Tunnel', () => {
     tunnelClient = startServer('./src/client.ts', {
       SERVER_HOST: 'localhost',
       SERVER_BIND_PORT: '7777',
-      SERVER_PORT: '3721',
+      SERVER_PORT: '7321',
       LOCAL_HOST: 'localhost',
       LOCAL_PORT: '3000',
     })
@@ -43,7 +43,7 @@ describe('Tunnel', () => {
   })
 
   test('basic request forwarding', async () => {
-    const response = await fetch('http://127.0.0.1:3721/')
+    const response = await fetch('http://127.0.0.1:7321/')
     expect(response.status).toBe(200)
   })
 })

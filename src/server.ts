@@ -42,7 +42,7 @@ const wss = Bun.serve<ClientData>({
   port: SERVER_BIND_PORT,
   fetch(req, server) {
     const url = new URL(req.url || '/', `http://localhost`)
-    const serverPort = parseInt(url.searchParams.get('serverPort') || '3721')
+    const serverPort = parseInt(url.searchParams.get('serverPort') || '7321')
 
     if (clients.has(serverPort)) {
       return new Response('Port already in use', { status: 409 })

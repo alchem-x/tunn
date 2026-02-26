@@ -32,7 +32,7 @@ bun run ./src/client.ts
 ```bash
 LOCAL_HOST=localhost        # 本地服务地址
 LOCAL_PORT=3000             # 本地服务端口
-SERVER_PORT=3721            # 穿透暴露的端口
+SERVER_PORT=7321            # 穿透暴露的端口
 SERVER_HOST=localhost       # 穿透服务地址
 SERVER_BIND_PORT=7777       # 穿透服务端口
 ```
